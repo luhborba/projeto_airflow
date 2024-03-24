@@ -4,13 +4,11 @@ from time import sleep
 from airflow.decorators import dag, task
 from datetime import datetime
 
-@dag(
-        dag_id='Minha Primeira Dag',
+@dag(dag_id='Minha Primeira Dag',
         description='Primeira DAG',
         schedule='* * * * *'
         start_date=datetime(2024,3,24),
-        catchup=False
-)
+        catchup=False)
 def pipeline():
     @task
     def primeira_atividade():
