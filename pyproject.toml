@@ -7,8 +7,23 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+taskipy = "^1.12.2"
+mkdocs = "^1.5.3"
+black = "^24.3.0"
+isort = "^5.13.2"
+pydocstyle = "^6.3.0"
+pip-audit = "^2.7.2"
+pre-commit = "^3.6.2"
+mkdocs-material = "^9.5.15"
+mkdocstrings = {extras = ["python"], version = "^0.24.1"}
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+format = "poetry run isort . && poetry run black ."
+test = "poetry run pytest -v"
+run = "python app/main.py"
+docs = "mkdocs serve"
